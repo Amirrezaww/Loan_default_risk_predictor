@@ -1,3 +1,6 @@
-altair
+xgboost
+scikit-learn
+imbalanced-learn
 pandas
+numpy
 streamlit
