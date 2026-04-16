@@ -1,0 +1,17 @@
+# Data
+data/raw/
+data/processed/
+
+# Model files (too large for GitHub)
+models/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Environment
+.env
