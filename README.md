@@ -36,14 +36,16 @@ Deployed on Hugging Face Spaces
 
 ## 📊 Key Results
 
-| Metric | Logistic Regression (Baseline) | XGBoost |
-|---|---|---|
-| AUC-ROC | 0.60 | 0.74 |
-| Default Recall | 0.50 | 0.44 |
-| Default Precision | 0.11 | 0.21 |
-| Default F1 | 0.17 | 0.28 |
+| Metric | Logistic Regression | XGBoost (Baseline) | XGBoost (Tuned) |
+|---|---|---|---|
+| AUC-ROC | 0.60 | 0.74 | **0.75** |
+| Default Recall | 0.50 | 0.44 | 0.40 |
+| Default Precision | 0.11 | 0.21 | **0.24** |
+| Default F1 | 0.17 | 0.28 | **0.30** |
 
-> Threshold optimised to 0.17 to maximise F1 score for the minority default class.
+> Hyperparameter tuning via RandomizedSearchCV with 3-fold Stratified CV,  
+> tested across 15 parameter combinations. SMOTENC applied inside a Pipeline to prevent 
+> data leakage across folds.
 
 ---
 
@@ -84,8 +86,9 @@ Loan_default_risk_predictor/
 │   ├── raw/                  # Raw Kaggle data (not tracked)
 │   └── processed/            # Cleaned data & plots
 ├── notebooks/
-│   ├── 01_eda.ipynb          # Exploratory data analysis
-│   └── 02_modelling.ipynb    # Model training & evaluation
+│   ├── 01_eda.ipynb                      # Exploratory data analysis
+│   ├── 02_modelling.ipynb                # Model training & evaluation
+│   └── 03_hyperparameter_tuning.ipynb    # CV + RandomizedSearchCV
 ├── src/                      # Utility modules
 ├── api/
 │   └── main.py               # FastAPI application
