@@ -72,21 +72,27 @@ Loan_default_risk_predictor/
 ├── data/
 │   ├── raw/                  # Raw Kaggle data
 │   └── processed/            # Cleaned data & plots
+
 ├── notebooks/
 │   ├── 01_eda.ipynb          # Exploratory data analysis
 │   └── 02_modelling.ipynb    # Model training & evaluation
+
 ├── src/                      # Utility modules
+
 ├── api/
 │   └── main.py               # FastAPI application
+
 ├── app/
 │   └── streamlit_app.py      # Streamlit frontend
+
 ├── models/
 │   ├── xgb_model.json        # Trained XGBoost model
 │   └── artifacts.pkl         # Encoder, threshold, feature cols
+
 └── README.md
 
 ---
-
+s
 ## 🚀 Run Locally
 
 **1. Clone the repo**
