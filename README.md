@@ -1,14 +1,18 @@
 # 🏦 Loan Default Risk Predictor
 
-An end-to-end machine learning system that predicts the probability of a loan applicant defaulting, built on the [Home Credit Default Risk](https://www.kaggle.com/c/home-credit-default-risk) dataset.
+An end-to-end machine learning system that predicts the probability of a loan applicant 
+defaulting, built on the [Home Credit Default Risk](https://www.kaggle.com/c/home-credit-default-risk) dataset.
 
-A live demo is available at: [Add Streamlit link here after deployment]
+🚀 **Live Demo:** [huggingface.co/spaces/amirrezaww/loan-default-risk-predictor](https://huggingface.co/spaces/amirrezaww/loan-default-risk-predictor)
 
 ---
 
 ## 🎯 Project Overview
 
-Credit default risk is one of the most critical problems in financial services. This project  builds a full production-style ML pipeline — from raw data to a deployed, interactive web  application — that assesses the likelihood of a loan applicant defaulting based on their personal, financial, and employment profile.
+Credit default risk is one of the most critical problems in financial services. This project 
+builds a full production-style ML pipeline — from raw data to a deployed, interactive web 
+application — that assesses the likelihood of a loan applicant defaulting based on their 
+personal, financial, and employment profile.
 
 ---
 
@@ -23,6 +27,8 @@ SMOTENC Oversampling + XGBoost Model
 FastAPI Backend (/predict endpoint)
 ↓
 Streamlit Frontend (Interactive UI)
+↓
+Deployed on Hugging Face Spaces
 
 ---
 
@@ -50,6 +56,8 @@ Streamlit Frontend (Interactive UI)
 - **Education inversely correlated with default** — Lower secondary education: 10.9% 
   default rate vs Academic degree: 1.8%
 - **Gender gap** — Male applicants defaulted at 10.1% vs 7.0% for female applicants
+- **Class imbalance handled with SMOTENC** — minority class oversampled from 19,860 to 
+  226,148 synthetic samples on training set only to prevent data leakage
 
 ---
 
@@ -62,15 +70,16 @@ Streamlit Frontend (Interactive UI)
 | Explainability | SHAP |
 | API | FastAPI, Pydantic, Uvicorn |
 | Frontend | Streamlit |
-| Deployment | Render (API), Hugging Face Spaces (UI) |
+| Deployment | Hugging Face Spaces |
 
 ---
 
 ## 📁 Project Structure
 
 Loan_default_risk_predictor/
+
 ├── data/
-│   ├── raw/                  # Raw Kaggle data
+│   ├── raw/                  # Raw Kaggle data (not tracked)
 │   └── processed/            # Cleaned data & plots
 
 ├── notebooks/
@@ -86,18 +95,18 @@ Loan_default_risk_predictor/
 │   └── streamlit_app.py      # Streamlit frontend
 
 ├── models/
-│   ├── xgb_model.json        # Trained XGBoost model
-│   └── artifacts.pkl         # Encoder, threshold, feature cols
+│   ├── xgb_model.json        # Trained XGBoost model (not tracked)
+│   └── artifacts.pkl         # Encoder, threshold, feature cols (not tracked)
 
 └── README.md
 
 ---
-s
+
 ## 🚀 Run Locally
 
 **1. Clone the repo**
 ```bash
-git clone https://github.com/Amirrezaww/Loan_default_risk_predictor.git
+git clone https://github.com/amirrezaww/Loan_default_risk_predictor.git
 cd Loan_default_risk_predictor
 ```
 
@@ -137,4 +146,4 @@ See `requirements.txt` for full dependencies.
 
 ## 👤 Author
 
-Amirreza Amini — [LinkedIn](https://www.linkedin.com/in/amirreza-amini8118/) | [GitHub](https://github.com/Amirrezaww)
+Amirreza — [GitHub](https://github.com/amirrezaww)
