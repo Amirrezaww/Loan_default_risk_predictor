@@ -18,17 +18,19 @@ personal, financial, and employment profile.
 
 ## 🏗️ Architecture
 
+```
 Raw Data (Kaggle)
-↓
+      ↓
 EDA & Feature Engineering (Jupyter)
-↓
+      ↓
 SMOTENC Oversampling + XGBoost Model
-↓
+      ↓
 FastAPI Backend (/predict endpoint)
-↓
+      ↓
 Streamlit Frontend (Interactive UI)
-↓
+      ↓
 Deployed on Hugging Face Spaces
+```
 
 ---
 
@@ -76,29 +78,24 @@ Deployed on Hugging Face Spaces
 
 ## 📁 Project Structure
 
+```
 Loan_default_risk_predictor/
-
 ├── data/
 │   ├── raw/                  # Raw Kaggle data (not tracked)
 │   └── processed/            # Cleaned data & plots
-
 ├── notebooks/
 │   ├── 01_eda.ipynb          # Exploratory data analysis
 │   └── 02_modelling.ipynb    # Model training & evaluation
-
 ├── src/                      # Utility modules
-
 ├── api/
 │   └── main.py               # FastAPI application
-
 ├── app/
 │   └── streamlit_app.py      # Streamlit frontend
-
 ├── models/
 │   ├── xgb_model.json        # Trained XGBoost model (not tracked)
 │   └── artifacts.pkl         # Encoder, threshold, feature cols (not tracked)
-
 └── README.md
+```
 
 ---
 
