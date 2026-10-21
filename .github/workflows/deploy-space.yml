@@ -1,0 +1,43 @@
+name: Deploy to Hugging Face Space
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "space/**"
+      - ".github/workflows/deploy-space.yml"
+  workflow_dispatch:
+
+env:
+  SPACE_ID: amirrezaww/loan-default-risk-predictor
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install huggingface_hub
+        run: pip install huggingface_hub
+
+      - name: Upload space/ to the Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python - <<'PY'
+          import os
+          from huggingface_hub import HfApi
+
+          HfApi(token=os.environ["HF_TOKEN"]).upload_folder(
+              folder_path="space",
+              repo_id=os.environ["SPACE_ID"],
+              repo_type="space",
+              # Remove the old untuned model files once they are replaced.
+              delete_patterns=["artifacts.pkl", "xgb_model.json"],
+              commit_message="Deploy from GitHub ${{ github.sha }}",
+          )
+          PY

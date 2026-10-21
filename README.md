@@ -97,6 +97,9 @@ Loan_default_risk_predictor/
 ├── models/
 │   ├── xgb_model.json        # Trained XGBoost model (not tracked)
 │   └── artifacts.pkl         # Encoder, threshold, feature cols (not tracked)
+├── space/                    # Hugging Face Space source (tuned model + Streamlit app)
+├── .github/workflows/
+│   └── deploy-space.yml      # Deploys space/ to Hugging Face on push to main
 └── README.md
 ```
 
@@ -135,6 +138,18 @@ uvicorn api.main:app --reload
 ```bash
 streamlit run app/streamlit_app.py
 ```
+
+---
+
+## 🌐 Deployment
+
+The live demo is deployed from the `space/` folder, which holds the Streamlit app,
+the tuned model and the Space metadata. A GitHub Action (`.github/workflows/deploy-space.yml`)
+uploads that folder to the Hugging Face Space whenever `space/` changes on `main`.
+
+To enable it, add a Hugging Face access token with write permission as a repository secret
+named `HF_TOKEN` (GitHub: Settings, Secrets and variables, Actions). To refresh the model,
+copy the new files from `models/` into `space/` and push.
 
 ---
 
